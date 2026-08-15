@@ -3,22 +3,20 @@ function groupAndCount(data)
     let dataLen = data.length;
     let result = {};
     let count;
-    for (let i = 0; i < dataLen; i++) {
-        // skip values we've already counted
-        if (result.hasOwnProperty(data[i])) continue;
-
-        count = 1;
-        for (let j = i + 1; j < dataLen; j++) {
-            if (data[i] === data[j]) {
-                count += 1;
-            }
+    for(const element of data)
+    {
+        if(result.hasOwnProperty(element))
+        {
+            result[element] = result[element] +1;
         }
-
-        result[data[i]] = count;
+        else{
+            result[element] =1;
+        }
     }
+
     return result;
 };
 
-let arr = ['apple','orange','apple','orange','apple'];
+let arr = ['apple','orange','apple','orange','apple',1];
 let obj = groupAndCount(arr);
 console.log(obj);
