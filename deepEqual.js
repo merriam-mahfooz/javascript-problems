@@ -10,7 +10,7 @@ function deepEqual(a,b)
             return false;
         }
     }
-    if(Object.keys(a).length != Object.keys(b).length)
+    if(Object.keys(a).length !== Object.keys(b).length)
     {
         return false;
     }
