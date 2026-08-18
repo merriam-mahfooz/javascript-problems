@@ -1,16 +1,21 @@
-function calculateSalary() {
-  let finalSalary = 0;
+// Function to calculate bonus separtely based on experience and salary of employee
+function calculateBonus(salary, experience) {
   let bonusAmount = 0;
-  if (employee.experience >= 0 && employee.experience <= 1) {
-    console.log("No Bonus.");
-    return;
-  } else if (employee.experience >= 2 && employee.experience <= 4) {
-    bonusAmount = employee.salary * 0.1;
-  } else if (employee.experience >= 5 && employee.experience <= 7) {
-    bonusAmount = employee.salary * 0.2;
+  if (experience >= 0 && experience <= 1) {
+    bonusAmount = 0;
+  } else if (experience >= 2 && experience <= 4) {
+    bonusAmount = salary * 0.1;
+  } else if (experience >= 5 && experience <= 7) {
+    bonusAmount = salary * 0.2;
   } else {
-    bonusAmount = employee.salary * 0.3;
+    bonusAmount = salary * 0.3;
   }
+  return bonusAmount;
+}
+
+function calculateSalary() {   
+  let finalSalary = 0;
+  let bonusAmount = calculateBonus(employee.salary, employee.experience);
   finalSalary = employee.salary + bonusAmount;
   console.log(`Bonus Amount: ${bonusAmount}`);
   console.log(`Final Salary: ${finalSalary}`);
@@ -19,8 +24,7 @@ function calculateSalary() {
 let employee = {
   name: "Nishu Pandey",
   salary: 45000,
-  experience: 9,
+  experience: 3,
 };
 calculateSalary();
-// Bonus Amount: 13500
-// Final Salary: 58500
+

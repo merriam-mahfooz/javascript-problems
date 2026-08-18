@@ -1,17 +1,23 @@
-function greaterThan10KAndTotal(obj) {
-  let total = 0;
-  for (let key of Object.keys(obj)) {
-    total += obj[key];
-    if (obj[key] >= 10000) {
-      console.log(`${key}: ${obj[key]}`);
+function greaterThan10K(obj) {
+  let result={};
+  for (let [key, value] of Object.entries(obj)) {  //try to use objects here and create another func for total
+    if (value >= 10000) {
+      result[key] = value;
     }
   }
-  console.log(`Total Price: ${total}`);
+  return result;
+}
+function calcTotal(obj) {
+  let total = 0;
+  for(let value of Object.values(obj)){
+    total += value;
+  }
+  return total;
 }
 
 function expensiveCheap(obj) {
   let max = 0,
-    min = 50000;
+    min = Infinity;
   let maxPro = "",
     minPro = "";
 
@@ -35,5 +41,9 @@ let products = {
   keyboard: 1500,
   monitor: 12000,
 };
-greaterThan10KAndTotal(products);
+
+let expensiveProducts = greaterThan10K(products);
+console.log("Products over 10,000:", expensiveProducts);
+console.log("Total value of expensive products:", calcTotal(expensiveProducts));
+
 expensiveCheap(products);

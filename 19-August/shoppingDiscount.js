@@ -1,5 +1,5 @@
 function purchase(price) {
-  let dicount;
+  let discount;
   if (user.age < 18) {
     console.log("You cannot purchase.");
     return;
@@ -26,6 +26,8 @@ function purchase(price) {
 let user = {
     name: "Rahul",
     age: 21,
-    balance: 5000, 
-    isPremium: true };
+    balance: 1000, 
+    isPremium: false
+   };
 purchase(1200);
+console.log(user);

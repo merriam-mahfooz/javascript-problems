@@ -8,25 +8,20 @@ function bankOperation(pin, operation, amount) {
   if (amount <= 0) {
     return "Invalid Amount";
   }
+  function displayMessage(success, message, balance) {
+    return { success: success, message: message, balance: balance };
+  }
   switch (operation.toLowerCase()) {
     case "withdraw":
       if (amount > bankAccount.balance) {
         return "Insufficient Balance";
       } else {
         bankAccount.balance -= amount;
-        return {
-          success: true,
-          message: "Withdrawal Successful",
-          balance: bankAccount.balance,
-        };
+        return displayMessage(true, "Withdrawal Succesful", bankAccount.balance);
       }
     case "deposit":
       bankAccount.balance += amount;
-      return {
-        success: true,
-        message: "Deposit Successful",
-        balance: bankAccount.balance,
-      };
+      return displayMessage(true, "Deposit Succesful", bankAccount.balance);
     default:
       return "Invalid Operation";
   }
@@ -36,6 +31,6 @@ let bankAccount = {
   accountHolder: "Rahul",
   balance: 50000,
   pin: 1234,
-  isActive: false,
+  isActive: true,
 };
-console.log(bankOperation(1234, "deposit", 4000));
+console.log(bankOperation(1234, "withdraw", 10000));
