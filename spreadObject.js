@@ -4,7 +4,9 @@ let user ={
     city: "Agra"
 };
 
-let newObject ={...user};
-newObject["profession"] = "Developer";
+let newObject ={...user}; //same memory address
+newObject["profession"] = "developer";
+
 
 console.log(newObject);
+console.log(user)

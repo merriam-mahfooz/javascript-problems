@@ -1,10 +1,6 @@
 function login(username,password)
 { 
-    if(user["isBlocked"] === true)
-    {
-        console.log("Account Blocked");
-    }
-    else if(user["username"] === username && user["password"] === password)
+    if(user["username"] === username && user["password"] === password && !isBlocked)
     {
         console.log("Login Successful");
     }
